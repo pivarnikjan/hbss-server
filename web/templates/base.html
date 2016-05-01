@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" {% block home %}{% endblock %}><a href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li role="presentation" {% block register %}{% endblock %}><a href="{{ url_for('register') }}">Sign
+                    Up</a>
+                </li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Hash-based signature system</h3>
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer">
+        <p>&copy; Ján Pivarník 2016</p>
+    </footer>
+
+</div>
+</body>
+</html>

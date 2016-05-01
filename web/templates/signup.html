@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block register %}
+    class="active"
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron" xmlns="http://www.w3.org/1999/html">
+        <h1>Register page</h1>
+        {% for message in form.email.errors %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+
+        {% for message in form.password.errors %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+
+        {% for message in form.confirm.errors %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+
+        <form action="{{ url_for('register') }}" method=post>
+            {{ form.hidden_tag() }}
+
+            {{ form.email.label }}
+            {{ form.email }}
+            <br>
+            {{ form.password.label }}
+            {{ form.password }}
+            <br>
+            {{ form.confirm.label }}
+            {{ form.confirm }}
+            <br>
+            {{ form.submit }}
+        </form>
+
+        {#        <form class="form-signup">#}
+        {##}
+        {#            <label for="inputEmail" class="sr-only">Email address</label>#}
+        {#            <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address"#}
+        {#                   required autofocus>#}
+        {#            <label for="inputPassword" class="sr-only">Password</label>#}
+        {#            <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password"#}
+        {#                   required>#}
+        {#            <label for="repeatPassword" class="sr-only">Repeat Password</label>#}
+        {#            <input type="password" name="repeatPassword" id="repeatPassword" class="form-control"#}
+        {#                   placeholder="Repeat password"#}
+        {#                   required>#}
+        {##}
+        {#            <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button">Sign up</button>#}
+        {#        </form>#}
+    </div>
+{% endblock %}
+
